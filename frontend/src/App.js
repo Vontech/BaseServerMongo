@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import Event from "./components/Event";
+import EventModel from "./models/EventModel";
 
 class App extends Component {
   state = {
@@ -61,6 +63,9 @@ class App extends Component {
           <button type="submit">Submit</button>
         </form>
         <p>{this.state.responseToPost}</p>
+        <Event
+          data={new EventModel("This is a test", null, null, null, null, null)}
+        />
       </div>
     );
   }
