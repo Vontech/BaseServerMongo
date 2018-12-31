@@ -1,0 +1,19 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 25
+    },
+    "auditLog": "/Users/vontell/Documents/done/log/.621c3a60ec7a55d2ecff4d552ade6decf79adf45-audit.json",
+    "files": [
+        {
+            "date": 1545882725157,
+            "name": "/Users/vontell/Documents/done/log/app.log..We-12-yyyy",
+            "hash": "20a1cbda90d28580e19e4ead84c17590"
+        },
+        {
+            "date": 1546233393119,
+            "name": "/Users/vontell/Documents/done/log/app.log..Mo-12-yyyy",
+            "hash": "65a5034ef2e367a633abf7c10c646ef2"
+        }
+    ]
+}

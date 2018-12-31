@@ -1,0 +1,14 @@
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"\u001b[0mGET /api/hello \u001b[32m200 \u001b[0m3.322 ms - 32\u001b[0m\n","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"yolor","level":"warn"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"\u001b[0mGET /api/hello \u001b[36m304 \u001b[0m2.326 ms - -\u001b[0m\n","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
