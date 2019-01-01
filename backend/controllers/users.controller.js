@@ -4,8 +4,12 @@ import logger from '../setup/logger';
 
 const controller = {};
 
+function emailValid(email) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
 controller.createUser = async (req, res, next) => {
-  logger.info("Made it into createUser");
 
   let err = await validateCreateUser(req.body);
   if (err) {
@@ -13,13 +17,7 @@ controller.createUser = async (req, res, next) => {
     res.json({message: err.message});
     return;
   }
-
-  if (req.body.email &&
-    req.body.username &&
-    req.body.password &&
-    req.body.passwordConf) {
     // Hash the password
-    logger.info("Hashing password...");
     bcrypt.hash(req.body.password, 8, (errH, hash) => {
       if (errH) {
         logger.error(errH);
@@ -40,10 +38,7 @@ controller.createUser = async (req, res, next) => {
         return res.json({ message: `User with username '${user.username}' has been created` });
       });
     });
-  } else {
-    res.status(500);
-    return res.json({ status: 500, message: 'Email, username, password, and passwordConf must be provided' });
-  }
+
 };
 
 /**
@@ -60,7 +55,26 @@ controller.createUser = async (req, res, next) => {
 async function validateCreateUser(body) {
   let baseError = "User creation error - ";
   if (!body.email) {
-    return baseError + "An valid email must be provided."
+    return {status: 400, message: baseError + "A valid email must be provided."}
+  }
+  if (!body.username) {
+    return {status: 400, message: baseError + "A valid username must be provided."}
+  }
+  if (!body.password) {
+    return {status: 400, message: baseError + "A valid password must be provided."}
+  }
+  if (!body.passwordConf) {
+    return {status: 400, message: baseError + "A valid password must be provided."}
+  }
+
+  // Check that this is a valid email
+  if (!emailValid(body.email)) {
+    return {status: 400, message: baseError + "The provided email is not a valid email address."}
+  }
+
+  // Check that passwords match
+  if (body.password != body.passwordConf) {
+    return {status: 400, message: baseError + "Passwords do not match."}
   }
 
   // Now check that this user does not exist

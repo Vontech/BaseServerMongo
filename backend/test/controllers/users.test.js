@@ -1,6 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import {prepareServer, teardownServer, testUser, basicToken, testUserAuth} from '../utils';
+import {prepareServer, teardownServer, testUser, basicToken, testUserAuth, getTestUserClone} from '../utils';
 
 import app from '../../../server';
 
@@ -24,6 +24,7 @@ describe('Users', () => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
                     res.body.should.have.property('message').eql('User with username \'mocha\' has been created');
+                    // TODO: Assert user is actually in DB
                     done();
                   });
         });
@@ -41,16 +42,50 @@ describe('Users', () => {
                   });
         });
 
-        it.skip('POST /api/users (invalid email)', (done) => {
-            
+        it('POST /api/users (invalid email)', (done) => {
+            let badUser = getTestUserClone();
+            badUser['email'] = "yolo";
+            chai.request(app)
+                .post('/api/users')
+                .send(badUser)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    res.should.have.status(400);
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('message').contains('email');
+                    res.body.should.have.property('message').contains('valid');
+                    done();
+                  });
         });
 
-        it.skip('POST /api/users (mismatched passwords)', (done) => {
-            
+        it('POST /api/users (mismatched passwords)', (done) => {
+            let badUser = getTestUserClone();
+            badUser['passwordConf'] = "yolo";
+            chai.request(app)
+                .post('/api/users')
+                .send(badUser)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    res.should.have.status(400);
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('message').contains('match');
+                    done();
+                  });
         });
 
-        it.skip('POST /api/users (missing fields)', (done) => {
-
+        it('POST /api/users (missing fields)', (done) => {
+            let badUser = getTestUserClone();
+            delete badUser['email'];
+            chai.request(app)
+                .post('/api/users')
+                .send(badUser)
+                .end((err, res) => {
+                    if (err) return done(err);
+                    res.should.have.status(400);
+                    res.body.should.be.a('object');
+                    res.body.should.have.property('message').contains('email');
+                    done();
+                  });
         });
 
         it('POST /oauth/token', (done) => {

@@ -27,6 +27,10 @@ export function teardownServer(app, done) {
     mongoose.connection.close(done);
 }
 
+export function getTestUserClone() {
+    return Object.assign({}, testUser);
+}
+
 export async function dropDB() {
     await mongoose.connection.db.dropDatabase();
 }
