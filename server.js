@@ -12,8 +12,6 @@ import auth from "./backend/controllers/auth.controller";
 import authedRoutes from "./backend/routes/authed.routes";
 import openRoutes from "./backend/routes/open.routes";
 
-setupDB();
-
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -36,11 +34,12 @@ app.all('/oauth/token', app.oauth.token());
 app.use('/api/s', app.oauth.authenticate(), authedRoutes);
 app.use('/api', openRoutes);
 
-app.onStartListener = () => {}
-
-app.listen(config.serverPort, () => {
+app.server = app.listen(config.serverPort, async () => {
+  await setupDB();
   logger.info(`Listening on port ${config.serverPort}`);
-  app.onStartListener();
+  if (app.finished) { // Call any listeners
+    app.finished();
+  }
 });
 
 module.exports = app;

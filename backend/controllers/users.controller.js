@@ -6,6 +6,14 @@ const controller = {};
 
 controller.createUser = async (req, res, next) => {
   logger.info("Made it into createUser");
+
+  let err = await validateCreateUser(req.body);
+  if (err) {
+    res.status(err.status);
+    res.json({message: err.message});
+    return;
+  }
+
   if (req.body.email &&
     req.body.username &&
     req.body.password &&
@@ -49,11 +57,18 @@ controller.createUser = async (req, res, next) => {
  * @param {*} body 
  * @returns null if no error, or an error string otherwise
  */
-function validateCreateUser(body) {
-  let baseError = "User create error - ";
+async function validateCreateUser(body) {
+  let baseError = "User creation error - ";
   if (!body.email) {
     return baseError + "An valid email must be provided."
   }
+
+  // Now check that this user does not exist
+  let existingUsers = await Users.find({username: body.username, email: body.email});
+  if (existingUsers.length > 0) {
+    return {status: 409, message: baseError + "A user with this username or email already exists."}
+  }
+
 }
 
 export default controller;

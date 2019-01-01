@@ -7,7 +7,7 @@ export async function setupDB() {
     const { dbHost, dbPort, dbName } = config;
     try {
         await Mongoose.connect(`mongodb://${dbHost}:${dbPort}/${dbName}`);
-        logger.info('Connected to mongo server.');
+        logger.info(`Connected to mongo server at mongodb://${dbHost}:${dbPort}/${dbName}`);
 
         // Create the base client if does not already exist
         Clients.findOneAndUpdate({
