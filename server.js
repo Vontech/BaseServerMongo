@@ -11,6 +11,7 @@ import auth from "./backend/controllers/auth.controller";
 
 import authedRoutes from "./backend/routes/authed.routes";
 import openRoutes from "./backend/routes/open.routes";
+import Users from "./backend/models/users.model";
 
 const app = express();
 app.use(bodyParser.json());
@@ -31,7 +32,19 @@ app.oauth = new OAuthServer({
 
 app.all('/oauth/token', app.oauth.token());
 
-app.use('/api/s', app.oauth.authenticate(), authedRoutes);
+function attachUser(req, res, next) {
+  Users.find({_id: res.locals.oauth.token.userId}, (err, users) => {
+    // TODO: Handle errors
+    let user = users[0];
+    res.session = {};
+    res.session.user = user
+    res.session.userId = user._id;
+    res.session.token = res.locals.oauth.token;
+    next();
+  })
+}
+
+app.use('/api/s', app.oauth.authenticate(), attachUser, authedRoutes);
 app.use('/api', openRoutes);
 
 app.server = app.listen(config.serverPort, async () => {

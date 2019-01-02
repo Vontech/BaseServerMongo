@@ -3,6 +3,7 @@ import Users from '../models/users.model';
 import Tokens from '../models/tokens.model';
 import Clients from '../models/clients.model';
 import logger from '../setup/logger';
+import moment from 'moment';
 
 /**
  * Get access token.
@@ -58,11 +59,11 @@ module.exports.getUser = async function(username, password) {
 module.exports.saveToken = function(token, client, user) {
   var accessToken = new Tokens({
     accessToken: token.accessToken,
-    accessTokenExpiresOn: token.accessTokenExpiresOn,
+    accessTokenExpiresAt: moment(token.accessTokenExpiresAt).toDate(),
     client : client,
     clientId: client.clientId,
     refreshToken: token.refreshToken,
-    refreshTokenExpiresOn: token.refreshTokenExpiresOn,
+    refreshTokenExpiresAt: moment(token.refreshTokenExpiresAt).toDate(),
     user : user,
     userId: user._id,
   });

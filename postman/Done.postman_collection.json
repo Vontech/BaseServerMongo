@@ -57,6 +57,18 @@
 		},
 		{
 			"name": "Authenticate User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21ffee2c-37e8-4d9e-9ced-ca8baf7ab219",
+						"exec": [
+							"pm.environment.set(\"accessToken\", pm.response.json().access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -100,6 +112,41 @@
 					"path": [
 						"oauth",
 						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{HOST}}/api/s/logout",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"s",
+						"logout"
 					]
 				}
 			},

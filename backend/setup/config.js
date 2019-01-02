@@ -8,13 +8,6 @@ config.dbHost = process.env.dbHost || 'localhost';
 config.dbPort = process.env.dbPort || '27017';
 config.dbName = process.env.dbName || 'donedev';
 
-if (process.env.NODE_ENV == 'test') {
-    console.log("USING TEST SERVER")
-    config.dbHost = 'localhost';
-    config.dbPort = '27017';
-    config.dbName = 'donetest';
-}
-
 // Client id and client secret for OAuth 2.0
 // NOTE: The client secret should be kepy secret! Preferably set this variable
 // as an environment variable; for now, this is public for debugging purposes.
@@ -25,5 +18,14 @@ config.clientId = process.env.authClient || 'donedev';
 config.clientSecret = process.env.authSecret || '97H7F4FD72JF7BPQL0GACZ1';
 
 config.serverPort = process.env.PORT || 5000;
+
+
+if (process.env.NODE_ENV == 'test') {
+    console.log("USING TEST ENV")
+    config.dbHost = 'localhost';
+    config.dbPort = '27017';
+    config.dbName = 'donetest';
+    config.serverPort = 6000;
+}
 
 export default config;

@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import Users from '../models/users.model';
+import Tokens from '../models/tokens.model';
 import logger from '../setup/logger';
 
 const controller = {};
@@ -40,6 +41,17 @@ controller.createUser = async (req, res, next) => {
     });
 
 };
+
+controller.logoutUser = async (req, res, next) => {
+  Tokens.deleteMany({accessToken: res.session.token.accessToken}, (err) => {
+    if (err) {
+      res.status(500);
+      return res.json({ message: err });
+    } else {
+      return res.sendStatus(200);
+    }
+  });
+}
 
 /**
  * Validate the user creation routine in the following ways:
