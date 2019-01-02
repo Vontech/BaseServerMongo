@@ -3,6 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import Event from "./components/Event";
 import EventModel from "./models/EventModel";
+import Task from "./components/Task";
+import TaskModel from "./models/TaskModel";
 
 class App extends Component {
   state = {
@@ -63,9 +65,12 @@ class App extends Component {
           <button type="submit">Submit</button>
         </form>
         <p>{this.state.responseToPost}</p>
+        
         <Event
-          data={new EventModel("This is a test", null, null, null, null, null)}
+          data={new EventModel("This is a test", null, null, "This is the description", null, "red", null)}
         />
+        <div style={{marginTop: 10}}></div>
+        <Task data={new TaskModel("Example Task", null, null, "This is a description", "Category", "#54CA7A", "#D0FFDF", 1, false)}/>
       </div>
     );
   }

@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import { CalendarItemModel } from "../models/CalendarItemModel";
 
-export function getTitleElement(data: CalendarItemModel) {
-  return(<h1 style={{color: 'white'}}>{data.title}</h1>);
+export function getTitleElement(data: CalendarItemModel, additionalStyles: any) {
+  return(<h1 style={additionalStyles}>{data.title}</h1>);
+}
+
+export function getTimeElement(data: CalendarItemModel, additionalStyles: any) {
+  return(<h1 style={additionalStyles}>{data.startTime} - {data.endTime}</h1>);
 }
 
 export function getContainerStyle(data: CalendarItemModel) {
   return {
-    borderRadius: 6,
-    background: 'red',
-    padding: 12
+    background: data.color,
+    padding: 12,
+    width: 200,
+    margin: 'auto',
+    textAlign: 'left',
+    
   }
 }
