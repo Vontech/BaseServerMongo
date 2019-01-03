@@ -19,7 +19,6 @@ config.clientSecret = process.env.authSecret || '97H7F4FD72JF7BPQL0GACZ1';
 
 config.serverPort = process.env.PORT || 5000;
 
-
 if (process.env.NODE_ENV == 'test') {
     console.log("USING TEST ENV")
     config.dbHost = 'localhost';

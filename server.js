@@ -36,10 +36,10 @@ function attachUser(req, res, next) {
   Users.find({_id: res.locals.oauth.token.userId}, (err, users) => {
     // TODO: Handle errors
     let user = users[0];
-    res.session = {};
-    res.session.user = user
-    res.session.userId = user._id;
-    res.session.token = res.locals.oauth.token;
+    req.session = {};
+    req.session.user = user
+    req.session.userId = user._id;
+    req.session.token = res.locals.oauth.token;
     next();
   })
 }
@@ -47,9 +47,12 @@ function attachUser(req, res, next) {
 app.use('/api/s', app.oauth.authenticate(), attachUser, authedRoutes);
 app.use('/api', openRoutes);
 
+app.alreadyStarted = false;
+
 app.server = app.listen(config.serverPort, async () => {
   await setupDB();
   logger.info(`Listening on port ${config.serverPort}`);
+  app.alreadyStarted = true;
   if (app.finished) { // Call any listeners
     app.finished();
   }

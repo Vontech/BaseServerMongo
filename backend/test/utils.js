@@ -4,8 +4,20 @@ import Tokens from '../models/tokens.model';
 import Clients from '../models/clients.model';
 import config from '../setup/config';
 import moment from 'moment';
+import {createBaseClient} from '../setup/db';
 
 var mongoose = require('mongoose');
+
+// This is the app reference that all tests will use
+import app from '../../server';
+console.log("STARTING TEST SERVER...");
+app.finished = async () => {
+    await dropDB();
+}
+if (app.alreadyStarted) {
+    app.finished();
+}
+export {app};
 
 export const testUser = {
     username: 'mocha',
@@ -28,16 +40,34 @@ const testUserHashed = {
 
 export const basicToken = 'ZG9uZWRldjo5N0g3RjRGRDcySkY3QlBRTDBHQUNaMQ==';
 
-export function prepareServer(app, done) {
+export function prepareServer(done) {
     app.finished = async () => {
         await dropDB();
+        await createBaseClient();
         done();
+    }
+    if (app.alreadyStarted) {
+        app.finished();
     }
 }
 
-export function teardownServer(app, done) {
-    app.server.close();
-    mongoose.connection.close(done);
+const testsToFinish = {
+    'events': false,
+    'users': false
+}
+
+export function teardownServer(test, done) {
+
+    testsToFinish[test] = true;
+
+    if (Object.values(testsToFinish).reduce((prev, current) => prev && current)) {
+        app.server.close();
+        console.log("\nTEARING DOWN TEST SERVER");
+        mongoose.connection.close(done);
+    } else {
+        done();
+    }
+    
 }
 
 export function getTestUserClone() {
@@ -74,6 +104,7 @@ export function withLogin(request, done) {
                 request.set('content-type', 'application/x-www-form-urlencoded')
                 request.set('Authorization', `Bearer ${res.accessToken}`)
                 request.accessToken = res.accessToken;
+                request.user = user;
                 done(request);
             })
         });
@@ -88,4 +119,27 @@ export function withLogin(request, done) {
             auth(res[0]);
         }
     });
+}
+
+export function getRawTestEvents() {
+    return [
+        {
+            "title": "My New Event 1!",
+            "startDate": "2019-01-02T03:30:00.000Z",
+            "endDate": "2019-01-02T04:30:00.000Z",
+            "description": "This is my new event description.",
+        },
+        {
+            "title": "My New Event 2!",
+            "startDate": "2019-01-02T03:30:00.000Z",
+            "endDate": "2019-01-02T04:30:00.000Z",
+            "description": "This is my new event description.",
+        },
+        {
+            "title": "My New Event 3!",
+            "startDate": "2019-01-02T03:30:00.000Z",
+            "endDate": "2019-01-02T04:30:00.000Z",
+            "description": "This is my newest event description.",
+        }
+    ]
 }

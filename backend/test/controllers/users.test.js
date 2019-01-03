@@ -1,9 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import chaiAsPromised from 'chai-as-promised';
-import {prepareServer, teardownServer, testUser, basicToken, testUserAuth, getTestUserClone, getTestAuthClone, withLogin} from '../utils';
-
-import app from '../../../server';
+import {prepareServer, teardownServer, testUser, basicToken, testUserAuth, getTestUserClone, getTestAuthClone, withLogin, app} from '../utils';
 
 import Users from '../../models/users.model';
 import Tokens from '../../models/tokens.model';
@@ -16,7 +14,7 @@ chai.use(chaiAsPromised);
 
 describe('Users', () => {
 
-    before((done) => { prepareServer(app, done); });
+    before((done) => { prepareServer(done); });
 
     describe('user creation and auth flow', () => {
 
@@ -177,6 +175,6 @@ describe('Users', () => {
 
     });
 
-    after((done) => { teardownServer(app, done); });
+    after((done) => { teardownServer('users', done); });
 
 });
