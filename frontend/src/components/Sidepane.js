@@ -58,6 +58,7 @@ export default class Sidepane extends Component<State, Props> {
             />
             {this.generateSpacer(32)}
             <CalendarFiltersList 
+              handleCategoryClick={(cat) => {console.log(cat)}}
               categories={getFakeCategories()}
             />
           </div>

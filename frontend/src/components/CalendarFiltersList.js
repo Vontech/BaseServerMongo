@@ -4,7 +4,8 @@ import Strings from '../strings';
 import Colors from '../colors';
 
 type Props = {
-    categories: CalendarCategory[]
+    categories: CalendarCategory[],
+    handleCategoryClick: Function
 }
 
 type State = {
@@ -37,7 +38,7 @@ export default class CalendarFiltersList extends Component<State, Props> {
     };
 
     return (
-      <div style={styles.categoryContainer}>
+      <div style={styles.categoryContainer} onClick={() => this.props.handleCategoryClick(catEntry)}>
         <div style={indicatorStyle}></div>
         <div style={styles.categoryTitle}>{catEntry.title}</div>
       </div>
