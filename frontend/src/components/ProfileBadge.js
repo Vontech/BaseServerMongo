@@ -44,18 +44,19 @@ export default class ProfileBadge extends Component<State, Props> {
 
 }
 
+const IMAGE_SIZE = 48;
 const styles = {
     profileContainer: {
-        padding: 16
+        
     },
     imageContainer: {
         display: 'inline-block',
         verticalAlign: 'top'
     },
     image: {
-        width: 54,
-        height: 54,
-        borderRadius: 54/2,
+        width: IMAGE_SIZE,
+        height: IMAGE_SIZE,
+        borderRadius: IMAGE_SIZE/2,
     },
     otherContainer: {
         display: 'inline-block',
@@ -65,7 +66,9 @@ const styles = {
     profileTag: {
         color: Colors.TEXT_BLACK,
         marginBottom: 0,
-        marginTop: 0
+        marginTop: 0,
+        fontSize: 14,
+        fontWeight: 500,
     },
     counterContainer: {
         paddingTop: 4
@@ -80,6 +83,7 @@ const styles = {
         marginBottom: 0,
         marginTop: 2,
         marginLeft: 4,
-        verticalAlign: 'top'
+        verticalAlign: 'top',
+        fontSize: 12
     }
 };

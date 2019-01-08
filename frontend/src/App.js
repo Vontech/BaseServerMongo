@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import "./App.css";
 import Event from "./components/Event";
 import EventModel from "./models/EventModel";
+import Colors from "./colors";
 
 import Sidepane from "./components/Sidepane";
 
@@ -23,10 +23,10 @@ class App extends Component {
 
 const styles = {
   appcontainer: {
-    
+    height: '100%'
   },
   sidepane: {
-    width: 200
+    width: 248
   }
   
 }

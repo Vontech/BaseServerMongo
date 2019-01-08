@@ -39,8 +39,8 @@ const styles = {
     color: 'white',
     fontFamily: 'Open Sans',
     fontWeight: 800, 
-    fontSize: 32, 
+    fontSize: 28, 
     margin: 0,
-    paddingTop: 8
+    paddingTop: 12
   }
 };
