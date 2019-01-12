@@ -15,6 +15,9 @@ export default {
     W_P_TASKS: 'tasks',
     
     // Strings for sidepane category filters
-    S_C_TITLE: 'Classes'
+    S_C_TITLE: 'Classes',
+
+    // Strings for main calendar
+    C_TYPE_ARRAY: ['Day', 'Week', 'Month', 'Year'],
 
 }
