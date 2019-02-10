@@ -71,6 +71,7 @@ export default class Sidepane extends Component<State, Props> {
 
 const styles = {
   sidepaneContents: {
-    padding: 16
+    padding: 16,
+    marginLeft: 16
   }
 };

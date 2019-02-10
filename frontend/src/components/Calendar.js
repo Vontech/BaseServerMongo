@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import CalendarToolbar from './CalendarToolbar';
+import CalendarPane from './CalendarPane';
 
 type Props = {
 
@@ -24,10 +25,12 @@ export default class Calendar extends Component<State, Props> {
 
   render() {
     return (
-      <div>
-        <CalendarToolbar
+      <div style={styles.calendarContainer}>
+        {/* <CalendarToolbar
           month={'November'}
           year={'2018'}
+         /> */}
+         <CalendarPane 
          />
       </div>
     );
@@ -36,5 +39,8 @@ export default class Calendar extends Component<State, Props> {
 }
 
 const styles = {
-
+  calendarContainer: {
+    width: '100%',
+    height: '100%'
+  }
 };

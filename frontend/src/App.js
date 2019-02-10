@@ -21,11 +21,11 @@ class App extends Component {
 
   render() {
     return (
-        <Row>
-          <Col sm={SIDEPANE_SIZE}>
+        <Row style={styles.fillHeight}>
+          <Col sm={SIDEPANE_SIZE} style={styles.noHorizontalPadding}>
             <Sidepane />
           </Col>
-          <Col sm={12 - SIDEPANE_SIZE}>
+          <Col sm={12 - SIDEPANE_SIZE} style={styles.noHorizontalPadding}>
             <Calendar></Calendar>
           </Col>
         </Row>
@@ -36,6 +36,13 @@ class App extends Component {
 const styles = {
   reset: {
     margin: 0
+  },
+  fillHeight: {
+    height: '100%'
+  },
+  noHorizontalPadding: {
+    paddingLeft: 0,
+    paddingRight: 0,
   }
 }
 

@@ -39,6 +39,21 @@
             "date": 1547249077056,
             "name": "/Users/vontell/Documents/done/log/app.log..Fr-01-yyyy",
             "hash": "62dbfbb504285e4f5b7aecd7dd964953"
+        },
+        {
+            "date": 1548525484456,
+            "name": "/Users/vontell/Documents/done/log/app.log..Sa-01-yyyy",
+            "hash": "17a3f5f1f6820a3c69654c9581a78426"
+        },
+        {
+            "date": 1548607892188,
+            "name": "/Users/vontell/Documents/done/log/app.log..Su-01-yyyy",
+            "hash": "629c730e578eb93f4d8f91cd4c3a4119"
+        },
+        {
+            "date": 1549840143443,
+            "name": "/Users/vontell/Documents/done/log/app.log..Su-02-yyyy",
+            "hash": "09af73af5696d10df3f3fbaafbe866ee"
         }
     ]
 }

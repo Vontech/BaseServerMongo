@@ -599,3 +599,56 @@
 {"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
 {"message":"Successfully instantiated base client.","level":"info"}
 {"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"\u001b[0mGET /CalendarPane.js \u001b[33m404 \u001b[0m3.596 ms - 154\u001b[0m\n","level":"info"}
+{"message":"\u001b[0mGET /Calendar.js \u001b[33m404 \u001b[0m1.064 ms - 150\u001b[0m\n","level":"info"}
+{"message":"\u001b[0mGET /App.js \u001b[33m404 \u001b[0m0.356 ms - 145\u001b[0m\n","level":"info"}
+{"message":"\u001b[0mGET /src/index.js \u001b[33m404 \u001b[0m0.169 ms - 151\u001b[0m\n","level":"info"}
+{"message":"\u001b[0mGET /CalendarPane.js \u001b[33m404 \u001b[0m0.188 ms - 154\u001b[0m\n","level":"info"}
+{"message":"\u001b[0mGET /Calendar.js \u001b[33m404 \u001b[0m0.210 ms - 150\u001b[0m\n","level":"info"}
+{"message":"\u001b[0mGET /App.js \u001b[33m404 \u001b[0m0.189 ms - 145\u001b[0m\n","level":"info"}
+{"message":"\u001b[0mGET /src/index.js \u001b[33m404 \u001b[0m0.183 ms - 151\u001b[0m\n","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}

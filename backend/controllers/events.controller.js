@@ -5,6 +5,10 @@ import logger from '../setup/logger';
 
 const controller = {};
 
+/**
+ * Creates an event given a title, start date, end date,
+ * description, reminders (optional), category, and user.
+ */
 controller.createEvent = async (req, res, next) => {
 
   let err = await validateCreateEvent(req.body);
@@ -38,6 +42,9 @@ controller.createEvent = async (req, res, next) => {
 
 }
 
+/**
+ * Gets all events for the current user.
+ */
 controller.getEvents = async (req, res, next) => {
 
   Events.find({user: req.session.user}, (err, results) => {
@@ -49,6 +56,44 @@ controller.getEvents = async (req, res, next) => {
       res.json({events: results});
     }
   });
+
+}
+
+/**
+ * Updates the events by providing a new title, start
+ * date, end date, description, or category. Reminders
+ * should be added through the addReminder, removeReminder,
+ * and updateReminder events.
+ */
+controller.updateEvent = async(req, res, next) => {
+
+}
+
+/**
+ * Deletes a given event from the database.
+ */
+controller.deleteEvent = async(req, res, next) => {
+
+}
+
+/**
+ * Adds a reminder to an event.
+ */
+controller.addReminder = (req, res, next) => {
+
+}
+
+/**
+ * Removes a reminder from an event.
+ */
+controller.removeReminer = (req, res, next) => {
+
+}
+
+/**
+ * Updates a reminder for an event.
+ */
+controller.updateReminder = (req, res, next) => {
 
 }
 

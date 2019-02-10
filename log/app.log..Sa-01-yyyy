@@ -1,5 +1,4 @@
 {"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
-{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
 {"message":"Successfully instantiated base client.","level":"info"}
 {"message":"Listening on port 5000","level":"info"}
 {"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
@@ -26,7 +25,18 @@
 {"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
 {"message":"Successfully instantiated base client.","level":"info"}
 {"message":"Listening on port 5000","level":"info"}
-{"message":"\u001b[0mGET / \u001b[33m404 \u001b[0m4.749 ms - 139\u001b[0m\n","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
+{"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
+{"message":"Successfully instantiated base client.","level":"info"}
+{"message":"Listening on port 5000","level":"info"}
 {"message":"Connected to mongo server at mongodb://localhost:27017/donedev","level":"info"}
 {"message":"Successfully instantiated base client.","level":"info"}
 {"message":"Listening on port 5000","level":"info"}

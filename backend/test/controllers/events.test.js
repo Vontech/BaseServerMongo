@@ -15,7 +15,7 @@ describe('Events', () => {
 
     before((done) => { prepareServer(done); });
 
-    describe('basic event creation', () => {
+    describe('basic event creation and access', () => {
 
         it('POST /api/s/event', (done) => {
             withLogin(chai.request(app).post('/api/s/event'), req => {
@@ -29,6 +29,19 @@ describe('Events', () => {
                             res.length.should.be.equal(1);
                             done();
                         });
+                    })
+            });
+        });
+
+        it('GET /api/s/event', (done) => {
+            withLogin(chai.request(app).get('/api/s/event'), req => {
+                req.end((err, res) => {
+                        if (err) return done(err);
+                        res.should.have.status(200);
+                        res.body.should.be.a('object');
+                        res.body.should.have.property('events').length(1);
+                        res.body.events[0].title.should.be.equal('My New Event 1!');
+                        done();
                     })
             });
         });
